@@ -1,4 +1,3 @@
-```markdown
 # GamerZone
 
 ## Descripció
@@ -95,4 +94,3 @@ Les contribucions són benvingudes! No dubtis a obrir incidències o enviar *pul
 ## Llicència
 
 Aquest projecte està llicenciat sota la Llicència MIT.
-```
