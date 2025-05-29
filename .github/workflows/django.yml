@@ -21,6 +21,7 @@ jobs:
     - name: Instal·lar dependències
       run: |
         pip install django
+        pip install Pillow
 
     - name: Generar documentació pydoc
       run: |
