@@ -4,6 +4,12 @@
 
 GamerZone sembla ser una aplicació web construïda amb el framework Django, probablement funcionant com un blog o plataforma de contingut centrada en el món dels videojocs. Segons l'estructura dels fitxers, inclou funcionalitats per gestionar i mostrar publicacions, autors i etiquetes.
 
+## Documentació Pydoc
+
+- [models.py](https://htmlpreview.github.io/?https://github.com/Markos3106/my_site_MBG/blog.models.html "models.py")
+- [tests.py](https://htmlpreview.github.io/?https://github.com/Markos3106/my_site_MBG/blog.tests.html "tests.py")
+- [views.py](https://htmlpreview.github.io/?https://github.com/Markos3106/my_site_MBG/blog.views.html "views.py")
+
 ## Estructura del Projecte
 
 El projecte està estructurat segons el format estàndard de Django dins del directori `my_site/`:
