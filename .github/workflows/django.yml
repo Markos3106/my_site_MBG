@@ -20,9 +20,8 @@ jobs:
 
     - name: Instal·lar dependències
       run: |
-        python -m venv venv
-        source venv/bin/activate
         pip install django
+        pip install Pillow
 
     - name: Generar documentació pydoc
       run: |
