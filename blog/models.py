@@ -1,5 +1,14 @@
 from django.db import models
 
+"""
+Models de l'aplicació Blog.
+
+Aquest fitxer defineix les classes de models que representen les dades del blog,
+com ara publicacions, autors i etiquetes, i les seves relacions.
+
+S'utilitza per gestionar la persistència de dades mitjançant l'ORM de Django.
+"""
+
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)

@@ -1,7 +1,13 @@
 from .models import *
 from django.utils import timezone
 
-# Crear autors
+"""
+Script per poblar el blog amb dades fictícies.
+
+Crea publicacions de prova, autors i etiquetes per facilitar el desenvolupament i proves.
+"""
+
+#Crear autors
 authors = [
     Author.objects.create(first_name="Marc", last_name="Gamer", email="marc.gamer@vgameblog.com"),
     Author.objects.create(first_name="Laura", last_name="Pixel", email="laura.pixel@nextgennews.com"),
@@ -10,7 +16,7 @@ authors = [
     Author.objects.create(first_name="Toni", last_name="Loot", email="toni.loot@indiexplore.org"),
 ]
 
-# Crear tags
+#Crear tags
 tags = {
     "RPG": Tag.objects.create(caption="RPG"),
     "Multiplayer": Tag.objects.create(caption="Multiplayer"),
@@ -21,7 +27,7 @@ tags = {
     "Survival": Tag.objects.create(caption="Survival"),
 }
 
-# Crear posts
+#Crear posts
 post_data = [
     ("Top 10 RPGs del 2025", "Els RPGs que no et pots perdre", "rpg_top_2025.jpg", "top-rpgs-2025", ["RPG"]),
     ("Els millors jocs multijugador actuals", "Connecta i juga amb amics", "top_multiplayer.jpg", "top-multiplayer-2025", ["Multiplayer"]),
