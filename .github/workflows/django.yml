@@ -1,0 +1,51 @@
+name: Generar documentació pydoc i fer tests
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Instal·lar dependències
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        pip install django
+
+    - name: Generar documentació pydoc
+      run: |
+        mkdir -p docs
+        # Exemple: genera doc d'un fitxer i crea html a docs/
+        python -m pydoc -w blog/models.py
+        python -m pydoc -w blog/views.py
+        python -m pydoc -w blog/tests.py
+        # Mou el fitxer generat al directori docs
+        mv models.html docs/models.html
+        mv views.html docs/views.html
+        mv tests.html docs/tests.html
+
+    - name: Pujar docs al repositori (commit)
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add docs/
+        git commit -m "Actualitzar documentació pydoc" || echo "No hi ha canvis per commitar"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Run Tests
+      run: |
+        python manage.py test
