@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+{% block title %}Llista d'Autors - GamerZone{% endblock %}
+{% block content %}
+<h2>Llista d'Autors</h2>
+<table class="authors-table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Cognom</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for autor in autors %}
+        <tr>
+            <td>{{ autor.first_name }}</td>
+            <td>{{ autor.last_name }}</td>
+            <td><a href="{% url 'autor_detail' autor.first_name %}" class="know-more-button">saber-ne +</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

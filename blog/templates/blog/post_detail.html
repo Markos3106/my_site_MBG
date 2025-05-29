@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block title %}{{ post.title }} - GamerZone{% endblock %}
+
+{% block content %}
+<div class="post-container">
+        <h1>{{ post.title }}</h1>
+        <p class="description">{{ post.excerpt }}</p>
+        <div class="meta">
+            <span>{{ post.date }}</span>
+            <a href="{% url 'autor_detail' post.author.first_name %}" class="author">{{ post.author.first_name }} {{ post.author.last_name }}</a>
+        </div>
+        <p class="content">{{ post.content }}</p>
+        <div class="tags">
+            
+        </div>
+    </div>
+{% endblock %}

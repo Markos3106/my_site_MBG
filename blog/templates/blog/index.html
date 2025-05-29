@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+{% block title %}Inici - GamerZone{% endblock %}
+{% block content %}
+<img class="img" src="{{ url_img }}">
+<h2>Benvingut a GamerZone</h2>
+<p>Explora el nostre blog per descobrir les últimes novetats, anàlisis i recomanacions sobre videojocs!</p>
+
+<div class="card-grid">
+    {% for post in posts %}
+    <div class="card">
+        <img src="{{ post.image }}" alt="Imatge del post" class="card-image">
+        <h4 class="card-title">{{ post.title }}</h4>
+        <p class="card-text">{{ post.description }}</p>
+        <a href="{% url 'post_detail' post.slug %}" class="card-button">Llegir més</a>
+    </div>
+    {% endfor %}
+</div>
+
+<h3>Sobre nosaltres</h3>
+<p>
+    GamerZone és una comunitat creada per i per a gamers. Aquí compartim notícies sobre els últims llançaments, guies, curiositats i més.
+</p>
+<p>
+    Tant si jugues a PC, consola o mòbil, aquí trobaràs contingut pensat per a tu.
+</p>
+{% endblock %}

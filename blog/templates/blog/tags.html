@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+{% block title %}Tags - GamerZone{% endblock %}
+{% block content %}
+<h2>Etiquetes</h2>
+<ul>
+    <div class="tags">
+        {% for tag in tags %}
+            <a href="{% url 'tag_detail' tag.caption %}"class="tag">{{ tag.caption }}</a>
+        {% endfor %}
+    </div>
+</ul>
+{% endblock %}
