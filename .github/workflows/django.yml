@@ -16,7 +16,7 @@ jobs:
     - name: Configurar Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.10'
+        python-version: '3.11'
 
     - name: Instal·lar dependències
       run: |
@@ -26,21 +26,15 @@ jobs:
 
     - name: Generar documentació pydoc
       run: |
-        mkdir -p docs
-        # Exemple: genera doc d'un fitxer i crea html a docs/
-        python -m pydoc -w blog/models.py
-        python -m pydoc -w blog/views.py
-        python -m pydoc -w blog/tests.py
-        # Mou el fitxer generat al directori docs
-        mv models.html docs/models.html
-        mv views.html docs/views.html
-        mv tests.html docs/tests.html
+        python generate_docs.py
 
     - name: Pujar docs al repositori (commit)
       run: |
         git config user.name "github-actions"
         git config user.email "github-actions@github.com"
-        git add docs/
+        git add blog.models.html
+        git add blog.tests.html
+        git add blog.views.html
         git commit -m "Actualitzar documentació pydoc" || echo "No hi ha canvis per commitar"
         git push
       env:
